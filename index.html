@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>American Rescue Shooter</title>
+        <title>American Military Shooter</title>
         <style>
             html, body {
                 width: 100%;
@@ -78,18 +78,18 @@
                         bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
                         let unityLoader = document.createElement('script')
-                        unityLoader.src = 'Build/cover.loader.js'
+                        unityLoader.src = 'Build/3.loader.js'
                         unityLoader.onload = () => {
                             createUnityInstance(
                                 CANVAS,
                                 {
-                                    dataUrl: 'Build/cover.data',
-                                    frameworkUrl: 'Build/cover.framework.js',
-                                    codeUrl: 'Build/cover.wasm',
+                                    dataUrl: 'Build/3.data',
+                                    frameworkUrl: 'Build/3.framework.js',
+                                    codeUrl: 'Build/3.wasm',
                                     streamingAssetsUrl: 'StreamingAssets',
-                                    companyName: 'playd game studio',
-                                    productName: 'American Rescue Shooter',
-                                    productVersion: '0.2',
+                                    companyName: 'Ample Games',
+                                    productName: 'American Military Shooter',
+                                    productVersion: '0.1',
                                     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
                                     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
                                 },
