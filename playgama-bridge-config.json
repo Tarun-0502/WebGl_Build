@@ -2,7 +2,7 @@
     "$schema": "https://bridge.playgama.com/v1.26.0/schema.json",
     "platforms": {
         "game_distribution": {
-            "gameId": "American_Military_Shooter"
+            "gameId": ""
         },
         "telegram": {
             "adsgramBlockId": ""
@@ -48,12 +48,7 @@
     },
     "advertisement": {
         "interstitial": {
-            "preloadOnStart": true,
-            "placements": [
-                {
-                  "id": "test_placement"
-                }
-          ]
+            "preloadOnStart": true
         },
         "rewarded": {
             "preloadOnStart": true
