@@ -78,14 +78,14 @@
                         bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
                         let unityLoader = document.createElement('script')
-                        unityLoader.src = 'Build/runn.loader.js'
+                        unityLoader.src = 'Build/MadRunner.loader.js'
                         unityLoader.onload = () => {
                             createUnityInstance(
                                 CANVAS,
                                 {
-                                    dataUrl: 'Build/runn.data',
-                                    frameworkUrl: 'Build/runn.framework.js',
-                                    codeUrl: 'Build/runn.wasm',
+                                    dataUrl: 'Build/MadRunner.data',
+                                    frameworkUrl: 'Build/MadRunner.framework.js',
+                                    codeUrl: 'Build/MadRunner.wasm',
                                     streamingAssetsUrl: 'StreamingAssets',
                                     companyName: 'AmpleGames',
                                     productName: 'Mad Runner',
