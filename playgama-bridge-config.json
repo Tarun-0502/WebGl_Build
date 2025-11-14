@@ -2,7 +2,7 @@
     "$schema": "https://bridge.playgama.com/v1.26.0/schema.json",
     "platforms": {
         "game_distribution": {
-            "gameId": "Mad_Runner"
+            "gameId": "Santas_Gift"
         },
         "telegram": {
             "adsgramBlockId": ""
@@ -48,15 +48,15 @@
     },
     "advertisement": {
         "interstitial": {
-            "preloadOnStart": true
-        },
-        "rewarded": {
             "preloadOnStart": true,
             "placements": [
                 {
                   "id": "test_placement"
                 }
           ]
+        },
+        "rewarded": {
+            "preloadOnStart": true
         },
         "useBuiltInErrorPopup": true,
         "backfillId": ""
