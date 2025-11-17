@@ -78,14 +78,14 @@
                         bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
                         let unityLoader = document.createElement('script')
-                        unityLoader.src = 'Build/Penguin.loader.js'
+                        unityLoader.src = 'Build/HungryBird.loader.js'
                         unityLoader.onload = () => {
                             createUnityInstance(
                                 CANVAS,
                                 {
-                                    dataUrl: 'Build/Penguin.data',
-                                    frameworkUrl: 'Build/Penguin.framework.js',
-                                    codeUrl: 'Build/Penguin.wasm',
+                                    dataUrl: 'Build/HungryBird.data',
+                                    frameworkUrl: 'Build/HungryBird.framework.js',
+                                    codeUrl: 'Build/HungryBird.wasm',
                                     streamingAssetsUrl: 'StreamingAssets',
                                     companyName: 'AmpleGames',
                                     productName: 'Hungry Bird',
