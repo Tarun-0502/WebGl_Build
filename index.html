@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Sky Ball Journey</title>
+        <title>Rush Hour Car</title>
         <style>
             html, body {
                 width: 100%;
@@ -55,7 +55,23 @@
                 CANVAS.focus()
             })
 
+            let bridgeScript = null
+            let bridgeTimeout = null
+            let bridgeLoaded = false
+
             function addLocalBridge() {
+                if (bridgeLoaded) return
+                bridgeLoaded = true
+                clearTimeout(bridgeTimeout)
+
+                if (bridgeScript && bridgeScript.parentNode) {
+                    bridgeScript.onload = null
+                    bridgeScript.onerror = null
+                    bridgeScript.src = ''
+                    bridgeScript.parentNode.removeChild(bridgeScript)
+
+                }
+
                 const scriptElement = document.createElement('script')
                 scriptElement.src = './playgama-bridge.js'
                 document.body.appendChild(scriptElement)
@@ -64,7 +80,20 @@
                 }
             }
 
+            bridgeScript = document.createElement('script')
+            bridgeScript.src = 'https://bridge.playgama.com/v1/stable/playgama-bridge.js'
+            bridgeScript.onload = initializeBridge
+            bridgeScript.onerror = addLocalBridge
+
+            bridgeTimeout = setTimeout(() => {
+                console.warn('CDN bridge failed to load within 2 seconds, loading local bridge')
+                addLocalBridge()
+            }, 2000)
+
+            document.head.appendChild(bridgeScript)
+
             function initializeBridge() {
+                clearTimeout(bridgeTimeout)
                 bridge.engine = 'unity'
                 bridge
                     .initialize()
@@ -78,18 +107,18 @@
                         bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
                         let unityLoader = document.createElement('script')
-                        unityLoader.src = 'Build/Sky Ball Journey.loader.js'
+                        unityLoader.src = 'Build/RushHour.loader.js'
                         unityLoader.onload = () => {
                             createUnityInstance(
                                 CANVAS,
                                 {
-                                    dataUrl: 'Build/Sky Ball Journey.data',
-                                    frameworkUrl: 'Build/Sky Ball Journey.framework.js',
-                                    codeUrl: 'Build/Sky Ball Journey.wasm',
+                                    dataUrl: 'Build/RushHour.data',
+                                    frameworkUrl: 'Build/RushHour.framework.js',
+                                    codeUrl: 'Build/RushHour.wasm',
                                     streamingAssetsUrl: 'StreamingAssets',
-                                    companyName: 'AmpleGames',
-                                    productName: 'Sky Ball Journey',
-                                    productVersion: '0.1',
+                                    companyName: 'Ample Games',
+                                    productName: 'Rush Hour Car',
+                                    productVersion: '1.0',
                                     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
                                     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
                                 },
@@ -720,6 +749,5 @@
                     })
             }
         </script>
-        <script src="https://bridge.playgama.com/v1/stable/playgama-bridge.js" onload="initializeBridge()" onerror="addLocalBridge()"></script>
     </body>
 </html>

@@ -1,8 +1,8 @@
 {
-    "$schema": "https://bridge.playgama.com/v1.26.0/schema.json",
+    "$schema": "https://bridge.playgama.com/v1.26.1/schema.json",
     "platforms": {
         "game_distribution": {
-            "gameId": "Sky_Ball_Journey"
+            "gameId": "rushhour_car"
         },
         "telegram": {
             "adsgramBlockId": ""
@@ -48,7 +48,8 @@
     },
     "advertisement": {
         "interstitial": {
-            "preloadOnStart": true,"placements": [
+            "preloadOnStart": true,
+            "placements": [
                 {
                   "id": "test_placement"
                 }
