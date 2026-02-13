@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Roof Diving</title>
+        <title>ATV Racing Fury Offroad 2025</title>
         <style>
             html, body {
                 width: 100%;
@@ -78,18 +78,18 @@
                         bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
                         let unityLoader = document.createElement('script')
-                        unityLoader.src = 'Build/Roof TOp.loader.js'
+                        unityLoader.src = 'Build/Atv.loader.js'
                         unityLoader.onload = () => {
                             createUnityInstance(
                                 CANVAS,
                                 {
-                                    dataUrl: 'Build/Roof TOp.data',
-                                    frameworkUrl: 'Build/Roof TOp.framework.js',
-                                    codeUrl: 'Build/Roof TOp.wasm',
+                                    dataUrl: 'Build/Atv.data',
+                                    frameworkUrl: 'Build/Atv.framework.js',
+                                    codeUrl: 'Build/Atv.wasm',
                                     streamingAssetsUrl: 'StreamingAssets',
-                                    companyName: 'AmpleGames',
-                                    productName: 'Roof Diving',
-                                    productVersion: '0.1',
+                                    companyName: 'Ample Games',
+                                    productName: 'ATV Racing Fury Offroad 2025',
+                                    productVersion: '1.0',
                                     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
                                     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
                                 },
